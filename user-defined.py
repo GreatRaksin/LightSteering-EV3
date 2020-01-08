@@ -7,6 +7,7 @@ from pybricks.parameters import (Port, Stop, Direction, Button, Color,
                                  SoundFile, ImageFile, Align)
 from pybricks.tools import print, wait, StopWatch
 from pybricks.robotics import DriveBase
+from time import sleep
 
 # Write your program here
 CL = ColorSensor(Port.S1)
@@ -26,19 +27,19 @@ def limit(value):
 
 while not Button.LEFT in brick.buttons():
     brick.display.text('Press the left button when the sensor is in dim light', (50, 60))
-    wait(10)
+    sleep(0.7)
     brick.display.clear()
 dim = CL.ambient()
 
 
 while not Button.RIGHT in brick.buttons():
     brick.display.text('Press the RIGHT button when the sensor is in dim light', (50, 60))
-    wait(10)
+    sleep(0.7)
     brick.display.clear()
 bright = CL.ambient()
 
 while True:
     intensity = CL.ambient()
     steer = limit((200 * (intensity - dim) / (bright - dim)) - 100)
-    Robot.drive(30, steer)
+    Robot.drive(50, steer)
     sleep(0.1)
