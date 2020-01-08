@@ -10,13 +10,12 @@ The sensor's <code>.ambient()</code> property (it measures the ambient light int
 
 How about **(ambientLightIntensity * 2)-100**? Put a light intensity value of **0** into that formula and it will give us **-100**, as wanted and putting a value of **100** in will give a result of **+100**, with is also correct.
 
-We'll keep the speed set to a constant, say, **30**. 
+We'll keep the speed set to a constant, say, **50**. 
 
 The code can be:
 
 <code>while True:</code><br>
-    <code>Robot.drive(30, cl.ambient() * 2 -100)<br>
-    sleep(0.1) # waiting for 0.1 second</code>
+    <code>Robot.drive(50, cl.ambient() * 2 -100)</code>
 
 Fix the color sensor so that it's facing vertically upwards, grab your flashlight, then run the script.
 
